@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const ThemeChanger = () => {
       const [theme, setTheme] = useState("light");
-      console.log(theme)
+      console.log(theme.charAt(0).toUpperCase() + theme.slice(1))
       const Themes = {
             light: {
                   backgroundColor: "#f0f0f0",
@@ -33,6 +33,7 @@ const ThemeChanger = () => {
                   }}
             >
                   <h1>Theme Chanager</h1>
+                  <h1>{theme.charAt(0).toUpperCase() + theme.slice(1)} mode</h1>
                   <button style={{ padding: 10, fontSize: 25 }} onClick={() =>
                         // theme === 'light' ?
                         //       setTheme('dark') :
@@ -41,7 +42,7 @@ const ThemeChanger = () => {
                               prevTheme === 'light' ?
                                     'dark' :
                                     prevTheme === 'dark' ? 'blue' : 'light')
-                  }>Toggle Theme</button>
+                  }>Toggle</button>
             </div >
       );
 };
