@@ -1,29 +1,29 @@
-import React from "react";
-// import React, {useState} from "react";
-import { useState } from "react";
+// import React from "react";
+// // import React, {useState} from "react";
+// import { useState } from "react";
 
-const FunctionStructureCreate = () => {
-  // const [count, setCount] = React.useState(0);
-  const [count, setCount] = useState(1);
+// const FunctionStructureCreate = () => {
+//   // const [count, setCount] = React.useState(0);
+//   const [count, setCount] = useState(1);
 
-  return (
-    <>
-      <h1>{count}</h1>
-      <h1>Function Structure</h1>
-      <button
-        onClick={() => {
-          setCount((prev) => {
-            return prev * 2;
-          });
-        }}
-      >
-        Count +
-      </button>
-    </>
-  );
-};
+//   return (
+//     <>
+//       <h1>{count}</h1>
+//       <h1>Function Structure</h1>
+//       <button
+//         onClick={() => {
+//           setCount((prev) => {
+//             return prev * 2;
+//           });
+//         }}
+//       >
+//         Count +
+//       </button>
+//     </>
+//   );
+// };
 
-export default FunctionStructureCreate;
+// export default FunctionStructureCreate;
 
 // creating Regular Function
 // export default function FunctionStructureCreate() {
@@ -34,41 +34,41 @@ export default FunctionStructureCreate;
 //   );
 // }
 
-// // creating Arrow Function Components
-// import { useCallback, useState } from "react";
+// creating Arrow Function Components
+import { memo, useCallback, useState } from "react";
 
-// function Child({ onIncrement }) {
-//   console.log("child rendered");
-//   return (
-//     <>
-//       <h1>Child Component</h1>
-//       <button onClick={onIncrement}>Click Me!</button>
-//     </>
-//   ); // function component
-// }
+const Child = memo(({ onIncrement }) => {
+  console.log("child rendered");
+  return (
+    <>
+      <h1>Child Component</h1>
+      <button onClick={onIncrement}>Click Me!</button>
+    </>
+  ); // function component
+});
 
-// const FunctionStructureArrow = () => {
-//   const [count, setCount] = useState(0);
-//   const [text, setText] = useState("");
-//   const handleChange = useCallback(() => {
-//     console.log("Button Clicked");
-//     setCount((prev) => prev + 1);
-//   }, []);
-//   // syntax
-//   // const [currentvalue, setvalue] = useState(intialValue);
+const FunctionStructureArrow = () => {
+  const [count, setCount] = useState(0);
+  const [text, setText] = useState("");
+  const handleChange = useCallback(() => {
+    console.log("Button Clicked");
+    setCount((prev) => prev + 1);
+  }, [count]);
+  // syntax
+  // const [currentvalue, setvalue] = useState(intialValue);
 
-//   return (
-//     <>
-//       {/* {console.log("re-rander")} */}
-//       <h1>Arrow Function</h1>
-//       <Child onIncrement={handleChange} />
-//       <input
-//         type="text"
-//         value={text}
-//         onChange={(e) => setText(e.target.value)}
-//       />
-//     </>
-//   );
-// };
+  return (
+    <>
+      {/* {console.log("re-rander")} */}
+      <h1>Arrow Function</h1>
+      <Child onIncrement={handleChange} />
+      <input
+        type="text"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+    </>
+  );
+};
 
-// export default FunctionStructureArrow;
+export default FunctionStructureArrow;

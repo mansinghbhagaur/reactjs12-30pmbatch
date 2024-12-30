@@ -5,6 +5,7 @@ import FunctionsComponents from "./components/FunctionsComponents";
 import LifeCycleMethod from "./lifecyclemethod/LifeCycleMethod";
 import FunctionStructureCreate from "./functionComponents/FunctionStructureCreate";
 import ThemeChanger from "./projecthooks/ThemeChanger";
+import UseEffectFile from "./hooks/UseEffectFile";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -18,7 +19,12 @@ function App() {
 
       {/* Function Components Add */}
       {/* <FunctionStructureCreate /> */}
-      <ThemeChanger />
+
+      {/* theme changer */}
+      {/* <ThemeChanger /> */}
+
+      {/* useEffect File */}
+      <UseEffectFile />
     </>
   );
 }
