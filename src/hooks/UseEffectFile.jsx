@@ -6,12 +6,17 @@ const UseEffectFile = () => {
       const [count, setCount] = useState(0);
       const [add, setAdd] = useState(0);
       const [data, setData] = useState([]);
-      console.log(data, "data")
+      const [loader, setLoader] = useState(true);
 
       const FetchData = async () => {
-            const resData = await fetch('https://jsonplaceholder.typicode.com/users').then((res) => res.json());
-            // console.log(resData, 'res');
-            setData(resData);
+            try {
+                  const resData = await fetch('https://jsonplaceholder.typicode.com/users').then((res) => res.json());
+                  // console.log(resData, 'res');
+                  setData(resData);
+                  setLoader(false);
+            } catch (error) {
+                  console.log(error);
+            }
       }
 
       useEffect(() => {
@@ -19,6 +24,19 @@ const UseEffectFile = () => {
             FetchData();
 
       }, [count])
+
+
+      if (loader) {
+            return <div style={{
+                  display: 'flex',
+                  justifyContent: "center",
+                  alignItems: 'center',
+                  minHeight: '90vh',
+                  fontSize: '50px'
+            }}>Loading...</div>
+      }
+
+
 
       return (
             <div>
@@ -28,13 +46,39 @@ const UseEffectFile = () => {
                   <button onClick={() => setCount(count + 1)}>Add</button>
                   <button onClick={() => setAdd(add + 1)}>AnotherAdd</button>
 
-                  <ul>
+
+                  {/* row par loading karna */}
+
+                  {/* <ul style={{ fontSize: "25px" }}> Table
+                        {
+                              loader ? <h1>Loading</h1> : data?.map((item) => (
+                                    <li key={item.id}>Id: {item.id} Name: {item.name}</li>
+                              ))
+                        }
+                  </ul> */}
+
+                  {/* <ul style={{ fontSize: "25px" }}> Table
                         {
                               data?.map((item) => (
                                     <li key={item.id}>Id: {item.id} Name: {item.name}</li>
                               ))
                         }
                   </ul>
+
+                  {loader && <h1>Loading</h1>} */}
+
+
+                  {/* third way */}
+
+                  <ul style={{ fontSize: "25px" }}> Table
+                        {
+                              data?.map((item) => (
+                                    <li key={item.id}>Id: {item.id} Name: {item.name}</li>
+                              ))
+                        }
+                  </ul>
+
+
 
                   {/* <Button variant='contained' color='primary'>+</Button>
                   <Button variant='contained' color='secondary'>+</Button>

@@ -6,6 +6,7 @@ import LifeCycleMethod from "./lifecyclemethod/LifeCycleMethod";
 import FunctionStructureCreate from "./functionComponents/FunctionStructureCreate";
 import ThemeChanger from "./projecthooks/ThemeChanger";
 import UseEffectFile from "./hooks/UseEffectFile";
+import TableData from "./projecthooks/muitableorloader/TableData";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -24,7 +25,8 @@ function App() {
       {/* <ThemeChanger /> */}
 
       {/* useEffect File */}
-      <UseEffectFile />
+      {/* <UseEffectFile /> */}
+      <TableData />
     </>
   );
 }
