@@ -7,6 +7,8 @@ import FunctionStructureCreate from "./functionComponents/FunctionStructureCreat
 import ThemeChanger from "./projecthooks/ThemeChanger";
 import UseEffectFile from "./hooks/UseEffectFile";
 import TableData from "./projecthooks/muitableorloader/TableData";
+import Context from "./hooks/Context";
+import Content from "./projecthooks/project/pages/Content";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -25,8 +27,14 @@ function App() {
       {/* <ThemeChanger /> */}
 
       {/* useEffect File */}
-      {/* <UseEffectFile /> */}
-      <TableData />
+      {/* <UseEffectFile  /> */}
+
+      {/* table data component use */}
+      {/* <TableData /> */}
+
+      {/* useContext component use */}
+      <Content />
+
     </>
   );
 }

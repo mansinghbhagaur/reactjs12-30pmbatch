@@ -1,8 +1,13 @@
 import { Button } from '@mui/material';
-import React from 'react'
 import { useEffect, useState } from 'react'
+import { useThemeContext } from './Context';
+
 
 const UseEffectFile = () => {
+      // const { name, age } = useContext(ThemeContext);
+      const { name, age } = useThemeContext();
+      console.log('name', name)
+      console.log('age', age)
       const [count, setCount] = useState(0);
       const [add, setAdd] = useState(0);
       const [data, setData] = useState([]);
@@ -70,7 +75,7 @@ const UseEffectFile = () => {
 
                   {/* third way */}
 
-                  <ul style={{ fontSize: "25px" }}> Table
+                  <ul style={{ fontSize: "25px" }}> {name}{age}
                         {
                               data?.map((item) => (
                                     <li key={item.id}>Id: {item.id} Name: {item.name}</li>
