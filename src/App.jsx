@@ -9,6 +9,8 @@ import UseEffectFile from "./hooks/UseEffectFile";
 import TableData from "./projecthooks/muitableorloader/TableData";
 import Context from "./hooks/Context";
 import Content from "./projecthooks/project/pages/Content";
+import UseMemo from "./hooks/UseMemo";
+import UseCallback from "./hooks/UseCallback";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -33,7 +35,13 @@ function App() {
       {/* <TableData /> */}
 
       {/* useContext component use */}
-      <Content />
+      {/* <Content /> */}
+
+      {/* useMemo */}
+      {/* <UseMemo /> */}
+
+      {/* usecallback hook */}
+      <UseCallback />
 
     </>
   );
