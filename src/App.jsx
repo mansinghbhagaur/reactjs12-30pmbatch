@@ -11,6 +11,10 @@ import Context from "./hooks/Context";
 import Content from "./projecthooks/project/pages/Content";
 import UseMemo from "./hooks/UseMemo";
 import UseCallback from "./hooks/UseCallback";
+import UseRef from "./hooks/UseRef";
+import UseLayoutEffect from "./hooks/UseLayoutEffect";
+import ReducerUse from "./hooks/ReducerUse.jsx";
+
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -41,7 +45,15 @@ function App() {
       {/* <UseMemo /> */}
 
       {/* usecallback hook */}
-      <UseCallback />
+      {/* <UseCallback /> */}
+
+      {/* useRef */}
+      {/* <UseRef /> */}
+      {/*  */}
+      {/* <UseLayoutEffect /> */}
+
+      {/* main content show and use dispatch */}
+      <ReducerUse />
 
     </>
   );
