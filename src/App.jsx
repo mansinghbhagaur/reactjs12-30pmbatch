@@ -14,6 +14,8 @@ import UseCallback from "./hooks/UseCallback";
 import UseRef from "./hooks/UseRef";
 import UseLayoutEffect from "./hooks/UseLayoutEffect";
 import ReducerUse from "./hooks/ReducerUse.jsx";
+import ControlledCom from "./form/ControlledCom";
+import UncontrolledCom from "./form/UncontrolledCom.jsx";
 
 
 function App() {
@@ -53,7 +55,10 @@ function App() {
       {/* <UseLayoutEffect /> */}
 
       {/* main content show and use dispatch */}
-      <ReducerUse />
+      {/* <ReducerUse /> */}
+
+      <ControlledCom />
+      <UncontrolledCom />
 
     </>
   );
