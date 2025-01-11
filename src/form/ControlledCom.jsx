@@ -34,7 +34,9 @@ const ControlledCom = () => {
       };
 
       const [formData, setFormData] = useState(initialValue);
+      const [error, setError] = useState({ name: '', password: '', email: '' });
 
+      console.log(error);
       // onChange function is called whenever the user types something in the input field
       const handleChange = (e) => {
             // const value = e.target.value;
@@ -42,16 +44,24 @@ const ControlledCom = () => {
 
             // short code
             const { name, value } = e.target;
-
+            if (name === 'email' && !value.includes('@')) {
+                  setError((prev) => ({ ...prev, email: 'Invalid email format' }))
+            } else if (name === 'password' && value.length < 6) {
+                  setError((prev) => ({ ...prev, password: 'Password must be at least 6 characters long' }))
+            } else {
+                  setError({ name: '', password: '', email: '' })// reset error message
+            }
             setFormData((prev) => ({ ...prev, [name]: value }));
       }
 
       const handleSubmit = (e) => {
             e.preventDefault();
+            // if (formData.name === '' || formData.password === "" || formData.email === "") return setError("All fields are required");
             console.log(formData.name)
             console.log(formData.password)
             console.log(formData.email)
             setFormData(initialValue)
+            setError('')
       }
 
       return (
@@ -74,10 +84,14 @@ const ControlledCom = () => {
 
                         <input type="password" value={formData.password} name='password' onChange={(e) => handleChange(e)} />
                         <br /><br />
+                        {error && <p style={{ color: 'red' }}>{error.password}</p>}
                         <label>Enter your email:</label>
                         <input type="email" value={formData.email} name='email' onChange={(e) => handleChange(e)} />
                         <br /><br />
+                        {error && <p style={{ color: 'red' }}>{error.email}</p>}
+
                         <button type='submit'>Submit</button>
+                        {/* {error && <p style={{ color: 'red' }}>{error}</p>} */}
                   </form>
                   <hr />
             </div>
